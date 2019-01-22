@@ -14,10 +14,10 @@ class Bitmap:
         for i in range(h):
             self.pixels.append([])
             for j in range(w):
-                self.pixels[i].append(Pixel(0,0,0))
+                self.pixels[i].append(Pixel(0, 0, 0))
 
     def SetPx(self, w, h, r, g, b):
-        self.pixels[w][h] = Pixel(r,g,b)
+        self.pixels[w][h] = Pixel(r, g, b)
 
     def GetPx(self, w, h):
         return self.pixels[w][h]
@@ -47,7 +47,7 @@ def LoadBmp(path):
     colors = struct.unpack('<i', f.read(4))[0]
 
     #PIXELS
-    bitmap = Bitmap(width,height)
+    bitmap = Bitmap(width, height)
     padding = 4 - (3 * width) % 4
     if padding == 4:
         padding = 0
@@ -61,13 +61,13 @@ def LoadBmp(path):
             junk = struct.unpack('<B', f.read(1))[0]
     return bitmap
 
-def SaveBmp(bmp,path):
+def SaveBmp(bmp, path):
     b = ""
 
     #HEADER
     b += struct.pack('<B', 66)  #'b'
     b += struct.pack('<B', 77)  #'m'
-    padding = 4 - (3*bmp.width) % 4
+    padding = 4 - (3 * bmp.width) % 4
     if padding == 4:
         padding = 0
     b += struct.pack('<L', 3 * bmp.width * bmp.height + 54 + bmp.height * padding) #file size
