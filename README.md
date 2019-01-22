@@ -1,6 +1,6 @@
 # PythonBitmap
 Ultra simple way to read and write BMP files in Python
-
+```
 Pixel(r, g, b)
 
 Bitmap(w, h)
@@ -10,3 +10,4 @@ Bitmap(w, h)
 LoadBmp(path)
 
 SaveBmp(bmp, path)
+```
