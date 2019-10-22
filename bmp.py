@@ -1,6 +1,7 @@
 import struct
 
-class Pixel:
+class Pixel(object):
+    __slots__ = ['r', 'g', 'b']
     def __init__(self, r, g, b):
         self.r = r
         self.g = g
